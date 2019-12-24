@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<title>MMSim ...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../familyRaleway.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="./index.html" class="w3-bar-item w3-button"><i class="fa fa-microchip" aria-hidden="true" style="color: #FFFFFF;"></i> <b style="color: #FFFFFF">MMSim</b></a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small w3-hide-medium">
+      <a href="#about" class="w3-bar-item w3-button" title="[Alt + P]" accesskey="P"><i class="fa fa-info-circle" aria-hidden="true" style="color: #FFFFFF" id="about2"></i> <b style="color: #FFFFFF" id="about1">A propos</b></a>
+      <a href="#work" class="w3-bar-item w3-button" title="[Alt + U]" accesskey="U"><i class="fa fa-briefcase" style="color: #FFFFFF" id="work2"></i> <b style="color: #FFFFFF" id="work1">Utiliser</b></a>
+      <a href="#team" class="w3-bar-item w3-button" title="[Alt + T]" accesskey="T"><i class="fa fa-users" style="color: #FFFFFF" id="team2"></i> <b style="color: #FFFFFF" id="team1">Équipe</b></a>
+      <a href="#contact" class="w3-bar-item w3-button" title="[Alt + C]" accesskey="C"><i class="fa fa-envelope" style="color: #FFFFFF" id="contact2"></i> <b style="color: #FFFFFF" id="contact1">Contacter nous</b></a>
+      <a href="../Aide en ligne/index.html" class="w3-bar-item w3-button" title="[Alt + A]" accesskey="A"><i class="fa fa-question" style="color: #FFFFFF"></i> <b style="color: #FFFFFF">Aide</b></a>
+    </div>
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large" onclick="w3_open()">
+      <i class="fa fa-bars" style="color: #FFFFFF"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-blue-grey w3-card w3-animate-left w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-xxlarge w3-padding">&times;</a>
+  <a href="#home" onclick="w3_close()" class="w3-bar-item w3-button">Accueil</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">A propos</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">Utiliser</a>
+  <a href="#team" onclick="w3_close()" class="w3-bar-item w3-button">Équipe</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">Contacter nous</a>
+  <a href="../Aide en ligne/index.html" onclick="w3_close()" class="w3-bar-item w3-button">Aide</a>
+</nav>
+
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-left w3-text-white" id ="jmbot"style="padding: 48px;">
+    <span class="w3-jumbo w3-hide-small"><i class="fa fa-microchip" aria-hidden="true" style="color: #FFFFFF;"></i> <b>MMSim</b></span>
+    <span class="w3-xxxlarge w3-hide-large w3-hide-medium"><i class="fa fa-microchip" aria-hidden="true" style="color: #FFFFFF;"></i> <b>MMSim</b></span><br>
+    <span class="w3-xlarge" style="text-align:center">Outil de simulation des techniques de la gestion de la mémoire centrale</span>
+  </div>
+</header>
+
+<!-- About Section -->
+<div class="w3-container" style="padding:50px 16px" id="about">
+  <h3 class="w3-center w3-xxlarge" style="color: #707070"><b>A PROPOS</b></h3>
+  <hr class="w3-round-large" style="width:95px; border:3px solid; margin:auto; color: #707070">
+  <h4 class="w3-center w3-xlarge" style="color: black;font-weight: bold;">pourquoi MMSim <i class="fa fa-question w3-xxlarge"></i></h4>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <i class="fa fa-clone w3-margin-bottom w3-jumbo w3-center" style="color: #707070"></i>
+      <p class="w3-large">Multi-fenêtres</p>
+      <p>Possibilité de visualiser plusieures simulation en même temps</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-check-circle w3-margin-bottom w3-jumbo" style="color: #707070"></i>
+      <p class="w3-large">Compatibilité</p>
+      <p>Utilisable autant que platforme web sur tous les systémes d'exploitation</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-cog w3-margin-bottom w3-jumbo" style="color: #707070"></i>
+      <p class="w3-large">Simple à utiliser</p>
+      <p>Simplicité lors de l'utilsation et des essaies</p>
+    </div>
+    <div class="w3-quarter">
+      <i class="fa fa-tachometer w3-margin-bottom w3-jumbo" style="color: #707070"></i>
+      <p class="w3-large">Rapidité d'accès</p>
+      <p>Ce site assure la rapidité d'accès aux autres pages par des menus et des touches de fonction </p>
+    </div>
+  </div>
+</div>
+
+<!-- Use Section -->
+<div class="w3-container" style="padding:50px 16px" id="work">
+<div class="slideshow-container">
+<div class="mySlides fade">
+  <img src="bg2.jpg" style="width:100%" id="slideShowImg">
+  <div class="slideshow-content">
+    <a href="../Mono/index_test_mono.html"><h2 style="text-decoration: underline;">Monoprogrammation</h2></a>
+    <p>La Monoprogrammation se limite à charger qu'un seul programme à la fois en mémoire centrale.</p>
+  </div>
+</div>
+<div class="mySlides fade">
+  <img src="bg3.jpg" style="width:100%" id="slideShowImg">
+  <div class="slideshow-content">
+    <h2 style="text-decoration: underline;">Multiprogrammation</h2>
+    <p>La Multiprogrammation permet de charger plusieurs programmes utilisateurs en mémoire centrale.</p>
+    <div class="fixe">
+      <h4 style="display: inline;">Partition Fixe</h4>
+      <li style="display: inline; margin-left: 70px;"><a href="../Partition_Fixe_N/index_test_N.html"><b>File par partition</b></a></li>
+      <li style="display: inline; margin-left: 35px;"><a href="../Partition_Fixe_File/index_test.html"><b>File pour mémoire</b></a></li>
+    </div>
+    <div class="var">
+      <h4 style="display: inline;">Partition Variable</h4>
+      <li style="display: inline; margin-left: 24px;"><a href="../PartitonsVariablesDerVers/FirstFit/index_test.html"><b>First Fit</b></a></li>
+      <li style="display: inline; margin-left: 24px;"><a href="../PartitonsVariablesDerVers/BestFit/index_test.html"><b>Best Fit</b></a></li>
+      <li style="display: inline; margin-left: 24px;"><a href="../PartitonsVariablesDerVers/NextFit/index_test.html"><b>Next Fit</b></a></li>
+      <li style="display: inline; margin-left: 24px;"><a href="../PartitonsVariablesDerVers/WorstFit/index_test.html"><b>Worst Fit</b></a></li>
+      <li style="display: inline; margin-left: 24px;"><a href="../PartitonsVariablesDerVers/BuddySystem/index_test.html"><b>Buddy System</b></a></li>
+    </div>
+  </div>
+</div>
+<div class="mySlides fade">
+  <img src="bg4.jpg" style="width:100%" id="slideShowImg">
+  <div class="slideshow-content">
+    <h2 style="text-decoration: underline;">Mémoire virtuelle</h2>
+    <p>La mémoire virtuelle est une fonctionnalité d'un système d'exploitation qui permet à un ordinateur de compenser le manque de mémoire physique en transférant temporairement des données de la mémoire vive vers un stockage sur disque.</p>
+    <a href="../Pagination/index.html"><span style="float: left; margin-left: 7vw;font-size:20px;text-decoration: underline;">Pagination</span></a>
+    <a href="../Traduction/index.html"><span style="float: right; margin-right: 7vw;font-size:20px;text-decoration: underline;">Traduction d'adresses</span></a>
+  </div>
+</div>
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+</div>
+
+<!-- Team Section -->
+<div class="w3-container" style="padding:50px 50px" id="team">
+	<h3 class="w3-center w3-xxlarge"><b>NOTRE ÉQUIPE</b></h3>
+  	<hr class="w3-round-large w3-text-blue-grey" style="width:125px; border:3px solid; margin:auto;">
+  	<h4 class="w3-center w3-xlarge">MMSim est géree de la part de :</h4>
+  	<br>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="sami.jpg" alt="Sami" style="width:100%;height: 250px;">
+      <h2>Assenine Sami</h2>
+      <p class="title">Pagination</p>
+      <p>Ecole national Supérieure d'Informatique</p>
+      <div style="margin: 24px 0;">
+	    <a href="#" class="aa"><i class="fa fa-instagram"></i></a> 
+	    <a href="#" class="aa"><i class="fa fa-twitter"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-linkedin"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-facebook"></i></a> 
+	  </div>
+  		<p class="button">hm_assenine@esi.dz</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="billel.jpg" alt="Billel" style="width:100%;height: 250px;">
+      <h2>Benoudjit Billel</h2>
+      <p class="title">Chef d'équipe</p>
+      <p>Ecole national Supérieure d'Informatique</p>
+      <div style="margin: 24px 0;">
+	    <a href="#" class="aa"><i class="fa fa-instagram"></i></a> 
+	    <a href="#" class="aa"><i class="fa fa-twitter"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-linkedin"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-facebook"></i></a> 
+	  </div>
+  		<p class="button">hb_benoudjit@esi.dz</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="nassim.jpg" alt="Nassim" style="width:100%;height: 250px;">
+      <h2>Aouadj Iheb Nassim</h2>
+      <p class="title">Partition Fixe</p>
+      <p>Ecole national Supérieure d'Informatique</p>
+      <div style="margin: 24px 0;">
+	    <a href="#" class="aa"><i class="fa fa-instagram"></i></a> 
+	    <a href="#" class="aa"><i class="fa fa-twitter"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-linkedin"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-facebook"></i></a> 
+	  </div>
+  		<p class="button">hi_aouadj@esi.dz</p>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 10px;">
+  <div class="column">
+    <div class="card">
+      <img src="affif.jpg" alt="Afif" style="width:100%;height: 250px;">
+      <h2>Boudaoud Afif</h2>
+      <p class="title">Mémoire Virtuelle</p>
+      <p>Ecole national Supérieure d'Informatique</p>
+      <div style="margin: 24px 0;">
+	    <a href="#" class="aa"><i class="fa fa-instagram"></i></a> 
+	    <a href="#" class="aa"><i class="fa fa-twitter"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-linkedin"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-facebook"></i></a> 
+	  </div>
+  		<p class="button">hk_boudaoud@esi.dz</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="farouk.jpg" alt="Farouk" style="width:100%;height: 250px;">
+      <h2>Abdellah Farouk</h2>
+      <p class="title">Traduction d'Adresse</p>
+      <p>Ecole national Supérieure d'Informatique</p>
+      <div style="margin: 24px 0;">
+	    <a href="#" class="aa"><i class="fa fa-instagram"></i></a> 
+	    <a href="#" class="aa"><i class="fa fa-twitter"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-linkedin"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-facebook"></i></a> 
+	  </div>
+  		<p class="button">hf_abdellah@esi.dz</p>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="card">
+      <img src="chaimaa.jpg" alt="Chaimaa" style="width:100%;height: 250px;">
+      <h2>Zidane Chaimaa</h2>
+      <p class="title">Partition Variable</p>
+      <p>Ecole national Supérieure d'Informatique</p>
+      <div style="margin: 24px 0;">
+	    <a href="#" class="aa"><i class="fa fa-instagram"></i></a> 
+	    <a href="#" class="aa"><i class="fa fa-twitter"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-linkedin"></i></a>  
+	    <a href="#" class="aa"><i class="fa fa-facebook"></i></a> 
+	  </div>
+  		<p class="button">hc_zidane@esi.dz</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-padding-32 w3-theme-l5 w3-light-grey" id="contact">
+  <div class="w3-row">
+    <div class="w3-col m5">
+    <div class="w3-padding-16"><span class="w3-xlarge w3-border-blue-grey w3-bottombar">Contacter Nous</span></div>
+      <h3>Adresse</h3>
+      <p>Restons en contact. Envoyez nous un message <i class="fa fa-comment w3-large w3-text-blue-grey"></i></p>
+      <p><a href="https://www.google.dz/maps/place/Ecole+Nationale+Sup%C3%A9rieure+d'Informatique/@36.7050299,3.1717269,17z/data=!3m1!4b1!4m5!3m4!1s0x128e522f3f317461:0x215c157a5406653c!8m2!3d36.7050299!4d3.1739156"><i class="fa fa-map-marker w3-text-blue-grey w3-xlarge"></i>  Ecole Nationale Supérieure d'Informatique (ESI ex.INI), Alger, Oued Smar</a></p>
+      <p><i class="fa fa-phone w3-text-blue-grey w3-xlarge"></i>  +0234563789</p>
+      <p><i class="fa fa-envelope-o w3-text-blue-grey w3-xlarge"></i>  mail@esi.dz</p>
+    </div>
+    <div class="w3-col m7">
+      <form class="w3-container w3-card-4 w3-padding-16 w3-white" action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Nom</label>
+        <input class="w3-input" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <input class="w3-input" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-grey w3-theme">
+      	<i class="fa fa-paper-plane w3-text-white"></i><span style="color: white">&nbsp Envoyer</span>
+      </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<br><br><br>
+
+<!-- Footer -->
+<footer class="w3-center w3-blue-grey w3-padding-32" style="color: #707070">
+  <a href="#home" class="w3-button w3-light-grey" style="border-radius: 8%;">
+    <i class="fa fa-arrow-up w3-margin-right" style="color: #707070"></i><span style="color: #707070">Acceuil</span>
+  </a>
+  <div class="w3-xxlarge" style="margin-top: 10px;">
+    <a href="https://www.facebook.com" class="btn-footer"><i class="fa fa-facebook-official"></i></a>
+    <a href="https://www.instagram.com" class="btn-footer"><i class="fa fa-instagram"></i></a>
+    <a href="https://www.linkedin.com" class="btn-footer"><i class="fa fa-linkedin"></i></a>
+    <a href="https://www.google.com" class="btn-footer"><i class="fa fa-google-plus"></i></a>
+  </div>
+  <p>© MMSim 2019 | Simulateur des techniques de la gestion de la mémoire centrale | projet 2CP équipe 31.</p>
+</footer>
+
+<!-- Script -->
+<script src="../jquery-3.3.1.js"></script>
+<script src="script.js"></script>
+<script>
+/* cette fonction retourne la position d'un block dans la page */	
+jQuery.fn.extend({
+	findPos : function() {
+	    obj = jQuery(this).get(0);
+	    var curleft = obj.offsetLeft || 0;
+	    var curtop = obj.offsetTop || 0;
+	    while (obj = obj.offsetParent) {
+	        curleft += obj.offsetLeft
+	        curtop += obj.offsetTop
+	    }
+	    return {x:curleft,y:curtop};
+	}
+});
+/* surbrillance du bouton d'une section dans le navbar lorsqu'on est sur cette section  */
+$(window).scroll(function(){
+pos1 = $('#about').findPos();
+pos2 = $('#work').findPos();
+pos3 = $('#team').findPos();
+pos4 = $('#contact').findPos();
+  var scroll = $(window).scrollTop();
+  if ((scroll >=0)&&(scroll < pos1.y)) {
+    document.getElementById("about1").style.color = "#FFFFFF";document.getElementById("about2").style.color = "#FFFFFF";
+    document.getElementById("work1").style.color = "#FFFFFF";document.getElementById("work2").style.color = "#FFFFFF";
+    document.getElementById("team1").style.color = "#FFFFFF";document.getElementById("team2").style.color = "#FFFFFF";
+    document.getElementById("contact1").style.color = "#FFFFFF";document.getElementById("contact2").style.color = "#FFFFFF";  
+  }
+  if ((scroll >= pos1.y)&&(scroll < pos2.y)) {
+    document.getElementById("about1").style.color = "#007bff";document.getElementById("about2").style.color = "#007bff";
+    document.getElementById("work1").style.color = "#FFFFFF";document.getElementById("work2").style.color = "#FFFFFF";
+    document.getElementById("team1").style.color = "#FFFFFF";document.getElementById("team2").style.color = "#FFFFFF";
+    document.getElementById("contact1").style.color = "#FFFFFF";document.getElementById("contact2").style.color = "#FFFFFF";  
+  }
+  if ((scroll >= pos2.y)&&(scroll < pos3.y)) {
+    document.getElementById("about1").style.color = "#FFFFFF";document.getElementById("about2").style.color = "#FFFFFF";
+    document.getElementById("work1").style.color = "#007bff";document.getElementById("work2").style.color = "#007bff";
+    document.getElementById("team1").style.color = "#FFFFFF";document.getElementById("team2").style.color = "#FFFFFF";
+    document.getElementById("contact1").style.color = "#FFFFFF";document.getElementById("contact2").style.color = "#FFFFFF";  
+  }
+  if ((scroll >= pos3.y)&&(scroll < pos4.y)) {
+    document.getElementById("about1").style.color = "#FFFFFF";document.getElementById("about2").style.color = "#FFFFFF";
+    document.getElementById("work1").style.color = "#FFFFFF";document.getElementById("work2").style.color = "#FFFFFF";
+    document.getElementById("team1").style.color = "#007bff";document.getElementById("team2").style.color = "#007bff";
+    document.getElementById("contact1").style.color = "#FFFFFF";document.getElementById("contact2").style.color = "#FFFFFF";  
+  }
+  if (scroll >= pos4.y-10) {
+    document.getElementById("about1").style.color = "#FFFFFF";document.getElementById("about2").style.color = "#FFFFFF";
+    document.getElementById("work1").style.color = "#FFFFFF";document.getElementById("work2").style.color = "#FFFFFF";
+    document.getElementById("team1").style.color = "#FFFFFF";document.getElementById("team2").style.color = "#FFFFFF";
+    document.getElementById("contact1").style.color = "#007bff";document.getElementById("contact2").style.color = "#007bff";  
+  }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  	<meta charset="UTF-8">
+	<title>Pagination</title>
+	<link href='style.css' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="../bootstrap.min.css">
+		<link href='https:../familyOpenSans.css' rel='stylesheet' type='text/css'>
+  <style type="text/css"> #madiv{overflow:auto;} </style>
+  <script src="../jquery.min.js"></script>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	<link href="../introjs.css" type="text/css" rel="stylesheet">
+</head>
+
+<body id="body1">
+	<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+					<div class="container">
+						<button class="navbar-toggler" id="nav-toggle-button" type="button" data-toggle="collapse"
+						data-target="#navbarTogglerDemo03" aria-label="Toggle navigation" style="outline: none;">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="../Accueil/index.html"><i class="fas fa-memory"></i> MMSim</a>
+
+						<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+							<ul class="navbar-nav ml-auto mt-4 mt-lg-0">
+								<li class="nav-item active">
+									<a class="nav-link" href="../Accueil/index.html" title="[Alt + H]" accesskey="H">Accueil <span class="sr-only">(current)</span></a></li>
+									<li class="nav-item active">
+										<a class="nav-link" href="#concept" title="[Alt + C]" accesskey="C" id="concept1">Concept </a></li>
+									<li class="nav-item active">
+										<a class="nav-link" href="#sim" onclick="myFunction()" title="[Alt + A]" accesskey="A">Algorithme </a></li>
+									<li class="nav-item active">
+										<a class="nav-link" href="#sim" title="[Alt + S]" accesskey="S" id="sim1">Simulation </a></li>
+									<li class="nav-item active">
+										<a class="nav-link" title="[Alt + G]" accesskey="G" href="javascript:void(0);" onclick="javascript:introJs().start();myFunction11();">Guide </a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+				<br><br><br><br>
+				<div class="ctr" id="concept">
+				<div class="container" >
+						<h1 id="title">Pagination, comment ça marche !</h1>
+				</div>
+
+				<div id="description_container">
+						<div class="container" data-intro="Une petite description concernant la Pagination." data-step="1">
+							<h4 class="sub_title">Pagination, de quoi s'agit-il ?</h4>
+							<p>La pagination consiste à découper l'espace
+								adressable, ou espace virtuel, en zones de taille fixe appelée pages. La mémoire
+								réelle est également découpée en cases (frame en anglais) ayant la taille d'une
+								page de sorte que chaque page peut être implantée dans n'importe quelle case de
+								la mémoire réelle. Lorsque toutes les cases de la mémoire centrale sont occupées alors le système d'exploitation exécute l'un des méthodes de remplacement pour libérer une case pour une autre page.</p>
+						</div>
+					</div>
+					<div class="container" id="sim">
+						<h2 class="sub_title">Simulation</h2>
+					</div>
+				</div>
+			
+<div id="mainContainer">
+
+	<div id="leftContainer">
+		<h2>Ajouter un Processus</h2>
+		<form id="processForm" data-intro="Cet espace est dédié à l’ajout d’un nouveau processus dans la mémoire secondaire, le nom du processus est entré dans le champ «Process id» et le nombre de pages est entré dans le champ «Nombre de Pages», et ça après avoir sélectionner une des 5 méthodes de remplacement, puis appuyer sur la touche 'Entrée'." data-step="2">
+			<div class="input-group" style="width: 95%;">
+				<input class="form-control" type="text" name="processId" placeholder="Process id" autocomplete="off" onkeypress="return tableInputKeyPress(event)" required/>
+			</div>
+			<div class="input-group" style="margin-top: 10px;width: 95%;">
+				<input class="form-control" type="number" max="10" min="1" name="pageNumber" placeholder="Nombre de pages" autocomplete="off" onkeypress="return tableInputKeyPress(event)" required/>
+			</div>
+		</form>
+
+		<div class="custom-select" style="width:150px;height: 45px;" id="customId" data-intro="Ce bouton permet de choisir une des 5 méthodes de remplacement dispoibles dans notre simulateur." data-step="3">
+			<select id="mySelect">
+				<option value="0">Méthode</option>
+				<option value="1">FIFO</option>
+				<option value="2">LRU</option>
+				<option value="3">NRU</option>
+				<option value="4">LFU</option>
+				<option value="5">Aging</option>
+			</select>
+		</div>
+
+	<div class="dropdown" id="dropdownId">
+		<button onclick="myFunction()" class="dropbtn" style="outline: none;"><i class="fa fa-caret-left" style="font-size: 20px;"></i></button>
+	</div>
+  		<div id="myDropdown" class="space" data-step="4" data-intro="C'est un espace réservé aux algorithmes, il donne notamment à l’utilisateur l’opportunité de lire l’algorithme de la méthode choisi, avec la possibilité d’afficher ou cacher cet espace avec un simple clic sur le bouton juste au-dessus.">
+			<div id="madiv" class="sous-space">
+				<div class="sous-sous-space">
+					<i class="fa fa-circle" style="font-size: 13px;color: #df6963;margin-top: 13px;margin-left: 10px;"></i>
+					<i class="fa fa-circle" style="font-size: 13px;color: #f5e18a"></i>
+					<i class="fa fa-circle" style="font-size: 13px;color: #97c38a"></i>
+				   	Algorithme
+				</div>
+
+		        <div class="fifo-algo" style="margin-left: 10px;">
+		          <b style="text-decoration: underline;font-size: 20px;color: white">FIFO:</b><br>
+		          <b style="color: white">i)</b> Lire une page.<br>
+		          <b style="color: white">ii)</b> Si la page est présente dans MC, mettre son bit de référence à 1.<br>
+		          <b style="color: white">iii)</b> Sinon <br>
+		          <b style="color: white;margin-left: 10px;">Si</b> la mémoire centrale contient moins de pages que sa capacité<br>
+		          <b style="margin-left: 20px;color: white">a)</b> Insérer la page dans la mémoire centrale.<br>
+		          <b style="margin-left: 20px;color: white">b)</b> Maintenir simultanément les pages dans la file d'attente pour construire la FIFO. <br>
+		          <b style="margin-left: 20px;color: white">c)</b> Incrémenter défaut de page.<br>
+		          <b style="color: white;margin-left: 10px;">Sinon</b><br>
+		          <b style="margin-left: 20px;color: white">a)</b> Supprimer la première page de la file d'attente, car elle a été la première à être entrée dans la mémoire, en la remplaçant par la page actuelle.<br>
+		          <b style="margin-left: 20px;color: white">b)</b> Faire ce changement au niveau de la MC.<br>
+		          <b style="margin-left: 20px;color: white">c)</b> Incrémenter défaut de page.<br>
+		        </div>
+
+		        <div class="lru-algo" style="margin-left: 10px;">
+		          <b style="text-decoration: underline;font-size: 20px;color: white">LRU:</b><br>
+		          <b style="color: white">indexes:</b> est un tableau d'objets, tel qu'un objet est un enregistrement contenant deux champs, un champ "page" et un champ "compteur".<br>
+		          <b style="color: white">i)</b> Lire une page.<br>
+		          <b style="color: white">ii)</b> Si la page est présente dans MC, mettre son bit de référence à 1.<br>
+		          <b style="color: white">iii)</b> Sinon <br>
+				  <b style="color: white;margin-left: 10px;">Si</b> la mémoire centrale contient moins de pages que sa capacité<br>
+		          <b style="margin-left: 20px;color: white">a)</b> Insérer la page dans la mémoire centrale.<br>
+		          <b style="margin-left: 20px;color: white">b)</b> Ajouter au tableau "indexes" cette page et la valeur 1 dans le champ compteur, puis incrémenter toutes les valeurs du champ compteur des autres éléments du tableau "indexes". <br>
+		          <b style="margin-left: 20px;color: white">c)</b> Incrémenter défaut de page.<br>
+		          <b style="margin-left: 10px;color: white">Sinon</b> <br>
+		          <b style="margin-left: 20px;color: white">a)</b> Trouvez la page, dans le tableau "indexes", qui était le moins récemment utilisée. Nous la trouvons en cherchant dans ce tableau la valeur la plus grande du champ compteur.<br>
+		          <b style="margin-left: 20px;color: white">b)</b> Remplacez la page trouvée par la page actuelle.<br>
+		          <b style="margin-left: 20px;color: white">c)</b> Incrémenter défaut de page.<br>
+		          <b style="margin-left: 20px;color: white">d)</b> Mettre la valeur du compteur de la page en cours à 1, puis incrémenter toutes les valeurs du champ comteur des autres pages.<br>
+		        </div>
+
+		        <div class="nru-algo" style="margin-left: 10px;">
+		          <b style="text-decoration: underline;font-size: 20px;color: white">NRU:</b><br>
+		          <b style="color: white">i)</b> Lire une page.<br>
+		          <b style="color: white">ii)</b> Si la page est présente dans MC, mettre son bit de référence à 1.<br>
+		          <b style="color: white">iii)</b> Sinon <br>
+		          <b style="color: white;margin-left: 10px;">Si</b> la mémoire centrale contient moins de pages que sa capacité<br>
+				  <b style="margin-left: 20px;color: white">a)</b> Insérer la page dans la mémoire centrale.<br>
+		          <b style="margin-left: 20px;color: white">b)</b> Mettre le bit de référence de la page inséré à 1. <br>
+		          <b style="margin-left: 20px;color: white">c)</b> Incrémenter défaut de page.<br>
+		          <b style="margin-left: 10px;color: white">Sinon</b> <br>
+		          <b style="margin-left: 20px;color: white">a)</b> Trouvez la page à remplacer en utilisant le bit de référence (R) et le bit de modification (M) et en suivant cette priorité : <br>
+		          chercher s'il y a une page avec R=0 et M=0, sinon chercher le cas R=0 et M=1, sinon le cas R=1 et M=0, sinon le cas R=1 et M=1, et dans le cas d'égalité on utilise le principe FIFO. <br>
+		          <b style="margin-left: 20px;color: white">b)</b> Remplacez la page trouvée par la page actuelle, et mettre son bit de référence à 1.<br>
+		          <b style="margin-left: 20px;color: white">c)</b> Incrémenter défaut de page.<br>
+		          <b style="margin-left: 20px;color: white">d)</b> Remettre à 0 tous les bits de référence après chaque K cycles.<br>
+		        </div>
+
+						<div class="lfu-algo" style="margin-left: 10px;">
+		          <b style="text-decoration: underline;font-size: 20px;color: white">LFU:</b><br>
+		          <b>i)</b> Lire une page.<br>
+		          <b>ii)</b> si la page référencée est présente en MC<br>
+		            <b style="margin-left: 10px;">a)</b> incrémenter le compteur de référence <br>
+		          <b>iii)</b> Sinon <br>
+		            <b style="margin-left: 10px;">Si</b> la MC n'est pas pleine<br>
+		            <b style="margin-left: 20px;">a)</b> insérer directement la page <br>
+		            <b style="margin-left: 20px;">b)</b> mettre le compteur de référence de la page inséré à 1 <br>
+		            <b style="margin-left: 10px;">Sinon</b> <br>
+		              <b style="margin-left: 20px;">a)</b> Trouvez la page avec le plus petit compteur de référence pour la remplacer <br>
+		              <b style="margin-left: 20px;">b)</b> mettre le compteur de référence de la page insérer à 1<br>
+		        </div>
+
+						<div class="aging-algo" style="margin-left: 10px;">
+		          <b style="text-decoration: underline;font-size: 20px;color: white">Aging:</b><br>
+		          <b>i)</b> Lire une page.<br>
+		          <b>ii)</b> si la page référencée n'est pas présente en MC <br>
+		            <b style="margin-left: 10px;">Si</b> la MC n'est pas pleine<br>
+		            <b style="margin-left: 20px;">a)</b> insérer directement la page<br>
+		            <b style="margin-left: 20px;">b)</b> mettre le compteur de référence de la page insérer à 1 <br>
+		            <b style="margin-left: 10px;">Sinon</b> <br>
+		              <b style="margin-left: 20px;">a)</b> Trouvez la page avec le plus petit compteur de référence pour la remplacer <br>
+		              <b style="margin-left: 20px;">b)</b> mettre le compteur de référence de la page inséré à 1<br>
+		            <b>iii)</b> décaler la valeur binaire du compteur de référence de tous les pages avec leurs bits de référence (décalage à gauche) <br>
+		            <br>
+		        </div>
+
+		    </div>
+		</div>
+	</div>
+	<div id="rightContainer">
+	    <div style="display: flex;">
+	      <div class="instructions" data-intro="Cet espace est dédié à l'affichage de l'instruction en cours d'exécution." data-step="5">
+	        <div class="loader" id="loading"></div>
+	        <div id="ins">Instructions</div>
+	      </div>
+	      <div class="defautPage" data-intro="Compteur de défaut de page." data-step="6"><div id="def">Défaut de page: 0</div></div>
+	    </div>
+	    <br>
+	    <div class="Main_area">
+				<div class="containerclass">
+	      <div class="MS">
+	        <div class="card" data-intro="Une structure 'Chart' pour faciliter la visualisation des processus crées par l'utilisateur (en réalité les pages associées à un processus sont stockées dans de différents secteurs et pistes en mémoire secondaire)." data-step="7">
+	          <div class="card-body">
+	            <canvas id="myChart"></canvas>
+	          </div>
+	        </div>
+	      </div>
+	      <div id="arrayContainer">
+	        <div id="array"></div>
+	        <div id="array1"></div>
+	        <div id="array2"></div>
+	        <div id="array3"></div>
+	        <div id="array4"></div>
+				</div>
+			</div>
+	      <div id="memoryContainer">
+	        <div id="memory"></div>
+	      </div>
+	    </div>
+	</div>
+</div>
+
+<script src="Chart.min.js"></script>
+<script src="script.js"></script>
+<!-- Footer -->
+				<footer class="page-footer font-small">
+  				<!-- Copyright -->
+  				<div class="footer-copyright text-center py-3"><p>© MMSim 2019 | Simulateur des techniques de la gestion de la mémoire centrale</p>
+    				<a href="../Accueil/index.html"> MMSim.com</a>
+  				</div>
+  				<!-- Copyright -->
+				</footer>
+				<!-- Footer -->
+				<script type="text/javascript" src="../intro.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+				<script src="../bootstrap.min.js"></script>
+				<script src="../jquery-3.3.1.js"></script>
+				<script>
+  jQuery.fn.extend({
+   findPos : function() {
+       obj = jQuery(this).get(0);
+       var curleft = obj.offsetLeft || 0;
+       var curtop = obj.offsetTop || 0;
+       while (obj = obj.offsetParent) {
+                curleft += obj.offsetLeft
+                curtop += obj.offsetTop
+       }
+       return {x:curleft,y:curtop};
+   }
+});
+$(window).scroll(function(){
+	pos1 = $('#concept').findPos();
+pos2 = $('#sim').findPos();
+  var scroll = $(window).scrollTop();
+  if ((scroll >=0)&&(scroll < pos1.y)) {
+    document.getElementById("concept1").style.color = "#FFFFFF";
+    document.getElementById("sim1").style.color = "#FFFFFF"; 
+  }
+  if ((scroll >= pos1.y)&&(scroll < pos2.y)) {
+    document.getElementById("concept1").style.color = "#007bff";
+    document.getElementById("sim1").style.color = "#FFFFFF"; 
+  }
+  if (scroll >= pos2.y-5) {
+    document.getElementById("concept1").style.color = "#FFFFFF";
+    document.getElementById("sim1").style.color = "#007bff";
+  }
+});
+</script>
+
+</body>
+</html>

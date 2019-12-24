@@ -1,0 +1,2 @@
+1- connectez vous à internet pour que les icones fonctionnent correctement.
+2- ouvrez le fichier "index.html" du dossier "Accueil".

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<title>Page Partitions Variables</title>
+			<link href='../style/style_test.css' rel='stylesheet' type='text/css'>
+			<link href='../../familyOpenSans.css' rel='stylesheet' type='text/css'>
+			<link rel="stylesheet" href="../../bootstrap.min.css">
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+			<script src="../../jquery-3.3.1.js"></script>
+			<script src="jquery-3.3.1.js"></script>
+			<script src="../../jquery.min.js"></script>
+			<link href="../../introjs.css" type="text/css" rel="stylesheet">
+
+		</head>
+
+<body>
+	<!----------------------------------- Menu -------------------------------->
+<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+		<div class="container">
+						<button class="navbar-toggler"  id="nav-toggle-button type="button"  data-toggle="collapse"  data-target="#navbarTogglerDemo03"aria-label="Toggle navigation" style="outline: none;">
+
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+  				<a class="navbar-brand" href="../../Accueil/index.html"><i class="fas fa-memory"></i> MMSim</a>
+
+  				<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+						<ul class="navbar-nav ml-auto mt-4 mt-lg-0">
+							<li class="nav-item active">
+								<a class="nav-link" href="../../Accueil/index.html" title="[Alt + H]" accesskey="H">Accueil <span class="sr-only">(current)</span></a></li>
+							<li class="nav-item active">
+								<a class="nav-link" href="#explore" title="[Alt + C]" accesskey="C" id="explore1">Concept </a></li>
+							<li class="nav-item active">
+								<a class="nav-link" href="#algo" title="[Alt + A]" accesskey="A" id="algo1">Algorithme </a></li>
+							<li class="nav-item active">
+								<a class="nav-link" href="#sim" title="[Alt + S]" accesskey="S" id="sim1">Simulation </a></li>
+							<li class="nav-item active">
+								<a class="nav-link" title="[Alt + G]" accesskey="G" href="javascript:void(0);" onclick="javascript:introJs().start();">Guide </a></li>	
+						</ul>
+				</div>
+		</div>
+</nav>
+	<!----------------------------------- /End Menu -------------------------------->
+	<!----------------------------------- Description -------------------------------->
+		<br><br><br><br>
+		    <div class="container" id="explore">
+						<h1 id="title">Partitions variables, quel concept !</h1>
+					</div>
+
+					<div id="description_container">
+						<div class="container" data-intro="Une petite description concernant Partitions variables." data-step="1">
+							<p>L'espace mémoire est divisé en partitions. Chaque partition peut être allouée à un programme. Dans cette stratégie la mémoire est partitionnée dynamiquement selon la demande. Lorsqu'un processus se termine sa partition est récupérée pour être réutilisée (complètement ou partiellement) par d'autres processus. Le lancement des processus dans les partitions se fait selon différentes stratégies. Pour cela le gestionnaire de la mémoire doit garder trace des partitions occupées et/ou des partitions libres. On distingue les stratégies de placement suivantes: Best Fit, Next Fit, Worst Fit , Next Fit et Buddy System.</p>
+						</div>
+					</div>
+			<div class="container" id ="container1">
+					<div class="container">
+						<h2>First Fit</h2>
+					</div>
+
+					<div id="description_container">
+						<div class="container" data-intro="Une description concernant FirstFit" data-step="2">
+							<h4 class="sub_title">De quoi s'agit-il ?</h4>
+							<p> La recherche commence par la partition libre qui commence à l'adresse 0 de la mémoire et continue jusqu'à la rencontre de la première partition dont la taille est au moins égale à celle du processus en attente. </p>
+						</div>
+					</div>
+
+	<!----------------------------------- /End Description -------------------------------->
+		<!----------------------------------- Algorithme  -------------------------------->
+			<div class="container" id="algo">
+				<h2 class="sub_title">Algorithme</h2>
+			</div>
+
+			<div class="container" data-intro="Le programme en javascript pour les curieux." data-step="3">
+				<div class="code-editor">
+			<span class="control"></span>
+			<span class="control"></span>
+			<span class="control"></span>
+			<pre class="line-numbers">
+				<code class="language-css">
+	* L'algorithme comporte deux phases: 
+
+	    ** PHASE1: Allocation de l'espace mémoire convenable
+	    ** PHASE2: Libération et réutilisation de l'espace mémoire à la fin de l'exécution
+	######################################################################################### 
+	PHASE1: 				
+blockFirstFit = this.head;
+
+		
+		while ((blockFirstFit.size < process.size) || (!blockFirstFit.available)) /*Recherche du premier bloc qui convient*/ 
+					blockFirstFit = blockFirstFit.next;
+			if (blockFirstFit == null) {return false};                            /*En cas ou il n'existe pas un bloc qui convient*/
+		};
+
+		spaceLeftover = blockFirstFit.size - (process.size ); /*Calcul de l'espace mémoire restant*/
+
+		
+		if (spaceLeftover > 0) {                                                   /*Création d'un nouveau bloc si nécessaire*/
+			newBlock = new MemControlBlock(spaceLeftover);
+
+			nextBlock = blockFirstFit.next;
+			if (nextBlock != null) {
+				nextBlock.prev = newBlock;
+				newBlock.next = nextBlock;
+			};
+
+			blockFirstFit.next = newBlock;
+			newBlock.prev = blockFirstFit;
+
+			blockFirstFit.size = process.size;
+
+			newBlock.fromPartition = true;
+		};
+
+		blockFirstFit.setProcess(process);
+		process.allocatedBlock = blockFirstFit;
+		return true;
+
+			######################################################################################### 
+	PHASE2:
+	block=this.head;
+		while (block !=null)
+		{
+			cpt=0;
+			newSize=0;
+			stop=false;
+			if (block.available)                                   /*A la rencontre d'un bloc libre*/
+			{
+				prec=block.prev;                                   /*On sauvegarde le précedent
+				while ((block!=null) && (!stop))                    
+				{
+					if (block.available)
+					{
+						cpt++;                                      /*cpt : contient le nombre de bloc qui sont libres et contigus
+						newSize=newSize+block.size;                 /*newSize : contient la nouvelle taille du bloc crée en fusionnant les blocs
+						block=block.next;                                            qui sont libres et contigus
+					}
+					else stop=true;
+				}
+				if (cpt>1)                                          /*Si jamais on a trouvé au moins 2 blocs libres et contigus 
+				{
+					newBlock = new MemControlBlock(newSize);        /*On crée un nouveau bloc de taille newSize
+					if (prec !=null)
+					{
+						prec.next=newBlock;                         /*
+					}
+					else this.head=newBlock;                                 Chainage nécessaire 
+					newBlock.prev=prec;
+					newBlock.next=block;                                                         */
+					if (block!=null)
+					{
+						block.prev=newBlock;
+					}
+				}
+			}
+			else block=block.next;
+		} 
+	};
+</code></pre>
+</div>
+			</div>
+<!----------------------------------- /End Algorithme -------------------------------->
+<!----------------------------------- Simulation----- -------------------------------->
+			<br><br>
+
+		<div class="container" id="sim">
+				<h2 class="sub_title">Simulation</h2>
+			</div>
+	</div>
+	<div class="container" id="mainContainer" >
+		<div class="row">
+			<div  id="leftContainer" class="col-12 col-lg-6 col-sm-12">
+				<h2>Ajouter un processus</h2>
+				<form id="processForm" data-intro="Cet espace est didié à l'ajout d'une nouvelle demande d'allocation d'un espace mémoire pour un processus donné par l'utilisateur. Ce processus est définie par : une taille et une durée de résidence en mémoire centrale." data-step="4">
+					<div class="input-group">
+						<input class="form-control" type="number" min="1" max="1024" name="processSize" placeholder="Taille du processus" autocomplete="off" required/>
+					</div>
+					<div class="input-group" style="margin-top: 10px;">
+						<input class="form-control" type="number" min="1" name="processTime" placeholder="Duree du processus" autocomplete="off" required/>
+						<button type="submit" style="display:none;"/>
+					</div></form>
+					
+					<br><br>
+
+					<h2>Table de processus </h2>
+					<table class="table" id="processTable" data-intro="Cette table de processus montre l'évolution en temps de tous les processus qui résident en mémoire centrale." data-step="5">
+						<tr>
+							<th> ID</th>
+							<th>Taille (Ko)</th>
+							<th>Temps restant (unité)</th>
+						</tr>
+					</table>
+
+					<br><br>
+
+					<div id="logBoxContainer">
+						<div id="logBox">DEBUG LOG<br></div>
+					</div>
+			</div>
+
+			<div  id="rightContainer" class="col-12 col-lg-6 col-sm-12">
+
+				<!-- *************************** Instuctions *************************** -->
+				<div style="display: flex;margin-bottom: 15px;">
+				      <div class="instructions" data-intro="Cet espace est dédier à l'affichage de l'instruction en cours d'exécution." data-step="6">
+				        <div class="loader" id="loading"></div>
+				        <div id="ins">Instructions</div>
+				      </div>
+	    		</div>
+	    		<!-- *************************** fin Instructions ********************** -->
+				
+				<div id="fileContainer" class="col-lg-3 col-sm-6 col-6">
+						<div id="file"></div>
+				</div>
+				<div id="memoryContainer" class="col-lg-3 col-sm-6 col-6">
+					<div id="memory"></div>
+					<script src="script_test.js"></script>
+					
+				</div>
+			</div>
+		</div>
+	</div>				
+
+	<!-- Footer -->
+				<footer class="page-footer font-small">
+  				<!-- Copyright -->
+  				<div class="footer-copyright text-center py-3"><p>© MMSim 2019 | Simulateur des techniques de la gestion de la mémoire centrale</p>
+    				<a href="../Accueil/index.html"> MMSim.com</a>
+  				</div>
+  				<!-- Copyright -->
+				</footer>
+				<!-- Footer -->
+	</div>
+
+<script src="../../jquery-3.3.1.js"></script>
+<script src="script_test.js"></script>
+<script type="text/javascript" src="../../intro.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="../../bootstrap.min.js"></script>
+<script>
+  jQuery.fn.extend({
+   findPos : function() {
+       obj = jQuery(this).get(0);
+       var curleft = obj.offsetLeft || 0;
+       var curtop = obj.offsetTop || 0;
+       while (obj = obj.offsetParent) {
+                curleft += obj.offsetLeft
+                curtop += obj.offsetTop
+       }
+       return {x:curleft,y:curtop};
+   }
+});
+$(window).scroll(function(){
+	pos1 = $('#explore').findPos();
+pos2 = $('#algo').findPos();
+pos3 = $('#sim').findPos();
+  var scroll = $(window).scrollTop();
+  if ((scroll >=0)&&(scroll < pos1.y)) {
+    document.getElementById("explore1").style.color = "#FFFFFF";
+    document.getElementById("algo1").style.color = "#FFFFFF";
+    document.getElementById("sim1").style.color = "#FFFFFF"; 
+  }
+  if ((scroll >= pos1.y)&&(scroll < pos2.y)) {
+    document.getElementById("explore1").style.color = "#007bff";
+    document.getElementById("algo1").style.color = "#FFFFFF";
+    document.getElementById("sim1").style.color = "#FFFFFF"; 
+  }
+  if ((scroll >= pos2.y)&&(scroll < pos3.y)) {
+    document.getElementById("explore1").style.color = "#FFFFFF";
+    document.getElementById("algo1").style.color = "#007bff";
+    document.getElementById("sim1").style.color = "#FFFFFF"; 
+  }
+  if (scroll >= pos3.y) {
+    document.getElementById("explore1").style.color = "#FFFFFF";
+    document.getElementById("algo1").style.color = "#FFFFFF";
+    document.getElementById("sim1").style.color = "#007bff"; 
+  }
+});
+</script>
+
+
+</body>
+</html>

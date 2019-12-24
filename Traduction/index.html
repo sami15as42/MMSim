@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		Traduction d'adresses
+	</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style type="text/css"> #madiv{overflow:auto;} </style></head>	
+			<link href='../familyOpenSans.css' rel='stylesheet' type='text/css'>
+			<link rel="stylesheet" href="../bootstrap.min.css">
+			<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+			<script src="../jquery.min.js"></script>
+  <link href="../introjs.css" type="text/css" rel="stylesheet">
+
+<body>
+<!----------------------------------- Menu -------------------------------->
+<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+  <div class="container">
+    <button class="navbar-toggler" id="nav-toggle-button" type="button" data-toggle="collapse"
+    data-target="#navbarTogglerDemo03" aria-label="Toggle navigation" style="outline: none;">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="../Accueil/index.html"><i class="fas fa-memory"></i> MMSim</a>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+      <ul class="navbar-nav ml-auto mt-4 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="../Accueil/index.html" title="[Alt + H]" accesskey="H">Accueil <span class="sr-only">(current)</span></a></li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#concept" title="[Alt + C]" accesskey="C">Concept </a></li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#sim" onclick="myFunction()" title="[Alt + A]" accesskey="A">Algorithme </a></li>
+        <li class="nav-item active">
+          <a class="nav-link" href="#sim" title="[Alt + S]" accesskey="S">Simulation </a></li>
+        <li class="nav-item active">
+          <a class="nav-link" title="[Alt + G]" accesskey="G" href="javascript:void(0);" onclick="javascript:introJs().start();myFunction11();">Guide </a></li>  
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!----------------------------------- /End Menu -------------------------------->
+<div id="concept"></div>
+<br><br><br><br>
+<div class="container">
+	<h1 id="title" style="font-size: 66px;">Traduction d'adresses, quel concept !</h1>
+</div>
+<br>
+<div id="description_container">
+	<div class="container" data-intro="Une petite description concernant la traduction d'adresse." data-step="1">
+		<p>Une adresse générée par le processeur est appelée adresse logique. Tandis qu’une adresse vue par l’unité mémoire, c’est à dire celle qui est chargée dans le registre d’adresse de la mémoire, est appelée adresse physique. Il est nécessaire au moment de l’exécution de convertir les adresses logiques en adresses physiques.
+        La traduction des adresses utilise une [table des pages] qui est située en mémoire centrale
+        ou dans des registres, et dans laquelle les entrées successives correspondent aux
+        pages virtuelle consécutives. La p-ième entrée de la table des pages contient le
+        numéro r de la case où est implantée la page p, et éventuellement des indicateurs
+        supplémentaires. L'adresse réelle (f,d) d'un mot d'adresse virtuelle (p,d) est obtenue en remplaçant
+        le numéro de page p par le numéro de case f trouvé dans la p-ième entrée. c'est ainsi que se déroule la traduction d'adresses.
+        </p>
+	</div>
+</div>		
+<div id="sim"></div>
+
+<div id="leftContainer">
+  	<h2 style="font-size: 27px;"> Entrez une adresse virtuelle </h2> 
+	<input id="CosInput" type="text" class="form__field" style="margin-top: 15px;" placeholder=" Adresse Virtuelle (xxxx)" data-intro="Cet espace est consacré à l’ajout d'une adresse sur 16 bits en Hexedecimal (i.e. 4 caractères du Hexedecimal), puis appuyer sur la touche 'Entrée'." data-step="2"/>
+	<div class="dropdown" id="dropdownId">
+        <button onclick="myFunction()" class="dropbtn"><i class="fa fa-caret-left" style="font-size: 20px;"></i></button>
+	</div>
+  	<div id="myDropdown" class="space" data-step="3" data-intro="C'est un espace réservé à l'algorithme de traduction d'adresse, il donne notamment à l’utilisateur l’opportunité de lire l’algorithme, avec la possibilité d’afficher ou cacher cet espace avec un simple clic sur le bouton juste au-dessus.">
+    	<div id="madiv" class="sous-space">
+      	 	<div class="sous-sous-space">
+	          <i class="fa fa-circle" style="font-size: 13px;color: #df6963;margin-top: 13px;margin-left: 10px;"></i>
+	          <i class="fa fa-circle" style="font-size: 13px;color: #f5e18a"></i>
+	          <i class="fa fa-circle" style="font-size: 13px;color: #97c38a"></i>
+	            Algorithme
+	     	</div>
+	        <div class="fifo-algo" style="margin-left: 10px;">
+	           	<b style="text-decoration: underline;font-size: 20px;color: white">Traduction d'adresse:</b><br>
+	            <b style="color: white">1)</b> Calculer le nombre de bits nécessaires pour adresser chaque page en suivant cette methode :<br>
+	            <b style="margin-left: 20px;color: white">a)</b> Considerant que l'adresse virtuelle est sur 16 bits donc il y a 2^16 adresses, la taille de la page est fixée à 4Ko (4*(2^10) adresses dans une page).<br>
+	            <b style="margin-left: 20px;color: white">b)</b> Le nombre de pages sera (2^16)/(2^12) = 2^4  donc pour adresser chaque page il nous faut 4 bits.<br>
+	            <b style="margin-left: 20px;color: white">c)</b> L'adresse virtuelle entrée par l'utilisateur est composée de 4 bits de poids fort indiqueront le numero de page et les 12 bits restant indiqueront le décalage (déplacement) dans la page.<br>
+	            <b style="color: white">2)</b> Traduire l'adresse virtuelle en binaire.<br>
+				<b style="color: white">3)</b> Extraire les bits qui referencent la page (4 bits du poids fort).<br>
+				<b style="color: white">4)</b> Chercher dans le tableau de pages la page demandée :<br>
+	            <b style="margin-left: 20px;color: white">a)</b> Si elle existe : concatener les 4 bits, qui forment le numero de la case où notre page réside, avec les 12 bits du décalage.<br> 
+	            <b style="margin-left: 20px;color: white">b)</b> Sinon : la page demandée n'existe pas dans la mémoire centrale.<br> 
+	        </div>  
+   		</div>
+	</div>
+</div>
+
+
+<div id="rightContainer">
+	<div id="inss" class="instructions" data-intro="Cet espace est dédié à l'affichage de l'instruction en cours d'exécution."data-step="4">
+   		<div id="ins">Le tableau de page au dessous concerne un systeme avec des adresses de 16 bytes et la taille d'une page est 4Ko </div>
+        <i class="fas fa-arrow-circle-right" id="fa-arrow-circle-right" ></i>
+        <i class="fas fa-exclamation-triangle" id="fa-exclamation-triangle"></i>
+	</div>
+	<div class='resultat1'>
+		<span id='adr1'>   Page</span> 
+	</div>
+
+	<div class='resultat2'>
+	<span id='adr22'>     Decalage</span> 
+	</div>
+
+	<div class='resultat5'>
+	<span id='adr3'>   Case</span> 
+	</div>
+
+	<div class='resultat6'>
+	<span id='adr2'>     Decalage</span>
+	</div>
+
+	<div class='resultat4'>
+	<span id='adr'>   Adresse physique</span> 
+	</div>
+
+
+	<div class="arrow1"></div>
+	<div class="arrow2"></div>
+	<div class="arrow3"></div>
+
+
+	<table data-intro="Tableau de correspondance contenant les pages qui sont dans la mémoire centrale et leurs numéros de case sur cette dernière." data-step="5">
+	    <thead>
+	  	    <tr>
+	    		<th>page</th>
+	    		<th>case</th>
+	    	</tr>
+	  	</thead>
+	  	<tbody>
+	   		<tr id='11'>
+	      		<td>11</td>
+	      		<td>1</td>
+	    	</tr>
+	    	<tr id='4'>
+	      		<td>4</td>
+	     		<td>2</td>
+	    	</tr>
+	   		<tr id='3'>
+	      		<td>3</td>
+	      		<td>3</td>
+	    	</tr>
+	    	<tr id='1'>
+	      		<td>1</td>
+	      		<td>4</td>
+	    	</tr>
+	        <tr id='8'>
+	      		<td>8</td>
+	      		<td>5</td>
+	    	</tr>
+	    	<tr id='7'>
+	      		<td>7</td>
+	      		<td>6</td>
+	    	</tr>
+	   		<tr id='6'>
+	     		<td>6</td>
+	     		<td>7</td>
+	    	</tr>
+	    	<tr id='5'>
+	     		<td>5</td>
+	     		<td>8</td>
+	    	</tr>
+	        <tr id='10'>
+	     		<td>10</td>
+	      		<td>9 </td>
+	  		</tr>
+	    	<tr id='9'>
+	      		<td>9</td>
+	      		<td>10</td>
+	    	</tr>
+	    	<tr id='12'>
+	      		<td>12</td>
+	     		<td>11</td>
+	    	</tr>
+	   		<tr id='2'>
+	      		<td>2</td>
+	      		<td>0</td>
+	    	</tr>
+  		</tbody>
+	</table>
+</div>
+<br><br>
+
+<div class="vide"></div>
+
+<!-- Footer -->
+<footer class="page-footer font-small">
+          <!-- Copyright -->
+    <div class="footer-copyright text-center py-3"><p>© MMSim 2019 | Simulateur des techniques de la gestion de la mémoire centrale</p>
+        <a href="../Accueil/index.html"> MMSim.com</a>
+    </div>
+          <!-- Copyright -->
+</footer>
+        <!-- Footer -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="../bootstrap.min.js"></script>
+<script type="text/javascript" src="animation.js"></script>
+<script type="text/javascript" src="../intro.js"></script>
+</body>
+</html>
