@@ -1,2 +1,3 @@
 # MMSim
-MMSim pour Memory Management Simulator, c'est une application web qui permet de simuler quelques techniques de gestion de la mémoire centrale par un système exploitation (Monoprogrammation, Multiprogrammation: partition fixe et variable de la mémoire, Mémoire virtuelle: pagination et traduction d'adresse).
+MMSim pour Memory Management Simulator, c'est une application web qui permet de simuler quelques techniques de gestion de la mémoire centrale par un système d'exploitation multitaches (Monoprogrammation, Multiprogrammation: partition fixe et variable de la mémoire, Mémoire virtuelle: pagination et traduction d'adresses).
+MMSim for Memory Management Simulator is a web application that simulates some techniques of central memory management by a multitask operating system (Monoprogramming, Multiprogramming: fixed and variable memory partition, Virtual memory: pagination and address translation).
